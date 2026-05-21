@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Checker</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <a href="/">← Back to Home</a>
+  <h1>Will it Rain Tomorrow?</h1>
+
+  <form action="/weather" method="POST">
+    <input type="text" name="city" placeholder="Enter city name" required>
+    <button type="submit">Check Weather</button>
+  </form>
+
+  <% if (error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+
+  <% if (weather) { %>
+    <h3>Tomorrow in <%= city %>:</h3>
+    <p><strong><%= weather.willRain ? "☔ Yes, it will rain!" : "☀️ No rain tomorrow!" %></strong></p>
+    <p>Condition: <%= weather.description %></p>
+    <p>Temperature: <%= weather.temp %>°C</p>
+  <% } %>
+
+</body>
+</html>
