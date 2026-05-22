@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crypto Price Checker</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <a href="/">← Back to Home</a>
+  <h1>💰 Crypto Price Checker</h1>
+
+  <form action="/crypto" method="POST">
+    <input type="text" name="symbol" placeholder="Enter symbol e.g BTC, ETH, LTC" required>
+    <button type="submit">Check Price</button>
+  </form>
+
+  <% if (error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+
+  <% if (crypto) { %>
+    <h3>Results for <%= symbol %>-USDT</h3>
+    <p>💵 Last Price: <strong>$<%= crypto.currentPrice %></strong></p>
+    <p>📈 24h High: <strong>$<%= crypto.high %></strong></p>
+    <p>📉 24h Low: <strong><%= crypto.low %></strong></p>    
+    <p>Percent Change in Price: <strong><%= crypto.change %></strong></p>    
+    <p>24h Volume: <strong><%= crypto.volume %></strong></p>    
+  <% } %>
+
+</body>
+</html>

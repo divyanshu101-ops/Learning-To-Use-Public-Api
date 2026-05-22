@@ -6,6 +6,7 @@ import "dotenv/config";
 import indexRouter from "./routes/home.js";
 import jokeRouter from "./routes/joke.js";
 import weatherRouter from "./routes/weather.js";
+import cryptoRouter from "./routes/crypto.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/joke", jokeRouter);
 app.use("/weather", weatherRouter);
+app.use("/crypto", cryptoRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
